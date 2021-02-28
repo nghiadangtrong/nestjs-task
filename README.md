@@ -19,8 +19,6 @@
     <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
   <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
 
@@ -29,7 +27,7 @@
 ## Installation
 
 ```bash
-$ npm install
+	npm install
 ```
 
 ## Running the app
@@ -72,42 +70,62 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
+## Tổng hợp - Menu - 9394 - 41
 
-## Tổng hợp - Menu - 9394
+1.cli
 
-1. cli
-	### install
-	yarn global add @nestjs/cli
+### install
 
-	### cai global
-		- lấy đường yarn global bin (path_bin): yarn global bin
-		- Thêm cuối dòng file: ~/.bashrc  | ~.zshrc 
-			export PATH=$PATH:path_bin
+yarn global add @nestjs/cli
 
-			vd: export PATH=$PATH:/home/noan/.yarn/bin
+### cai global
 
-	### check
-	nest -v
-	nest new name-project
+- lấy đường yarn global bin (path_bin): yarn global bin
+- Thêm cuối dòng file: ~/.bashrc  | ~.zshrc
 
-	### create module 
-	nest g module task  'create module name task'
+`export PATH=$PATH:path_bin`
 
-	### create controller
-	nest g controller task --no-spect 'Tạo task.controller và không tạo file unit test'
+vd: `export PATH=$PATH:/home/noan/.yarn/bin`
 
-	### create service
-	nest g service task --no-spect 'Tạo task.service và không tạo file unit test'
+### check
 
-2. Data Transfer Objects (DTO)
-	- Là một design pattern giúp code dễ  maintain
-	- Cho phép biết tham số có thể chuyền vào
+```
+nest -v
+nest new name-project
+```
 
-3. Pipes - validator
-	- Dùng để kiểm (validation) dữ liệu từ gửi client 
+### create module
 
-	### validator
-	yarn add class-validator class-transformer
+`nest g module task  'create module name task'`
 
+### create controller
 
-end lesson 9394.4
+`nest g controller task --no-spect 'Tạo task.controller và không tạo file unit test'`
+
+### create service
+
+`nest g service task --no-spect 'Tạo task.service và không tạo file unit test'`
+
+2.Data Transfer Objects (DTO)
+
+- Là một design pattern giúp code dễ  maintain
+- Cho phép biết tham số có thể chuyền vào ~ Validate dữ liệu từ client
+
+3.Pipes - validator
+
+- Dùng để kiểm (validation) dữ liệu từ gửi client
+
+### validator
+
+`yarn add class-validator class-transformer`
+
+4.TypeORM ([https://typeorm.io/#/](https://typeorm.io/#/))
+
+`yarn add @nestjs/typeorm typeorm pg`
+
+- Config TypORM to app.module.ts
+- Import TypeOrm to App.module.ts
+
+- Make Entity: task.entity.ts
+- Make Repository: task.repository.ts
+- InjectRespository TaskRespotitory in TaskModal
