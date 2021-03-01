@@ -94,6 +94,10 @@ nest -v
 nest new name-project
 ```
 
+### Follwer
+
+`Module => Controler => Service => Repository => Entity`
+
 ### create module
 
 `nest g module task  'create module name task'`

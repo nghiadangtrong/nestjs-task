@@ -1,6 +1,5 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
 
-console.log('env', process.env.DATABASE_HOST)
 export const typeOrmConfig: TypeOrmModuleOptions = {
     type: 'postgres',
     host: '192.168.1.63',
