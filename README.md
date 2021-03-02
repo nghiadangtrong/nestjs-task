@@ -155,6 +155,37 @@ create /auth/dto/auth-credentials.dto.ts
 export class User extends BaseEntity {}
 ```
 
+## hash password + salt
+
+- *Install bcrypt*
+
+`yarn add bcrypt`
+
+- *Lưu salt vs password*
+
+```typescript
+import * as bcrypt from 'bcrypt';
+
+user.salt = await bcrypt.genSalt();
+user.password = await bcrypt.hash(password, user.salt);
+
+```
+
+- *Kiểm tra password hợp lệ*
+
+```typescript
+
+  @Entity()
+  class User {
+    ...
+    validatePassword (password: string): Promise<boolean> {
+      let hash = await bcrypt.hash(password, this.salt);
+      return hash === this.password;
+    }
+  }
+  
+```
+
 ## Throw exception
 
 ```typescript
