@@ -194,4 +194,6 @@ throw new ConflictException('Username already exists');
 
 throw new InternalServerErrorException(); // Ngoại lệ lỗi máy chủ nội bộ
 
+throw new UnauthorizedException('Invalid credentials'); // SignIn thất bại 
+
 ```
