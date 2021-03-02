@@ -56,21 +56,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
-
-## Tổng hợp - Menu - 9394 - 41
+## Tổng hợp - Menu - 9394 - 45
 
 1.cli
 
@@ -89,7 +75,7 @@ vd: `export PATH=$PATH:/home/noan/.yarn/bin`
 
 ### check
 
-```
+```bash
 nest -v
 nest new name-project
 ```
@@ -133,3 +119,48 @@ nest new name-project
 - Make Entity: task.entity.ts
 - Make Repository: task.repository.ts
 - InjectRespository TaskRespotitory in TaskModal
+
+5.Auth
+
+- *create file*
+
+```bash
+nest g module auth
+nest g controller auth --no-spec
+nest g service auth --no-spec
+
+create /auth/user.entity.ts
+create /auth/auth.repository.ts
+
+create /auth/dto/auth-credentials.dto.ts
+```
+
+- *Validate password strong*
+
+```typscript
+  @MinLength(8)
+  @Matches (
+    /((?=.\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
+    { message: 'password too weak' }
+  )
+  password: string
+
+```
+
+- *Unique*
+
+```typescript
+@Enity()
+@Unique(['column_name'])
+export class User extends BaseEntity {}
+```
+
+## Throw exception
+
+```typescript
+
+throw new ConflictException('Username already exists'); 
+
+throw new InternalServerErrorException(); // Ngoại lệ lỗi máy chủ nội bộ
+
+```

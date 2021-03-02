@@ -11,7 +11,7 @@ export class AuthService {
         private authRepository: AuthRepository
     ) {}
 
-    signUp(authCredentialsDto: AuthCredentialsDto): Promise<User> {
+    signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
         return this.authRepository.signUp(authCredentialsDto);
     }
 }
