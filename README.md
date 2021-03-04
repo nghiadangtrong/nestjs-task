@@ -71,7 +71,11 @@ yarn global add @nestjs/cli
 
 `export PATH=$PATH:path_bin`
 
+<<<<<<< HEAD
 vd: `export PATH=$PATH:/home/noan/.yarn/bin`
+=======
+## Tổng hợp - Menu - 9394 - 28
+>>>>>>> 6b6dababf8842c0b051bbfe9bfff224d1c7f8111
 
 ### check
 
