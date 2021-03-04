@@ -56,7 +56,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Tổng hợp - Menu - 9394 - 45
+## Tổng hợp - Menu - 9394 - 51end
 
 1.cli
 
@@ -184,6 +184,47 @@ user.password = await bcrypt.hash(password, user.salt);
     }
   }
   
+```
+
+## Jwt + passport
+
+- **Jwt**
+Header      metadata token
+Payload     Data
+Signature   Mã hóa từ Header và Paylaod
+
+- Install `yarn add @nestjs/jwt @nestjs/passport passport passport-jwt`
+
+- Add Module */auth/auth.module.ts*
+
+```typescript
+import { JwtModule } from '@nestjs/jwt';
+
+@Module({
+  imports: [
+    JwtModule.register({
+      secret: 'secret',
+      signOptions: {
+        expiresIn: 36000
+      }
+    })
+  ]
+})
+export class AuthModule {}
+```
+
+- Create token */auth/auth.service.ts*
+
+```typescript
+import { JwtService } from '@nestjs/jwt';
+
+...
+contructor(private jwtService: JwtService) {}
+
+...
+let payload = { username };
+let accessToken = this.jwtService.sign(payload);
+
 ```
 
 ## Throw exception
