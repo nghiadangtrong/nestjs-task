@@ -71,11 +71,7 @@ yarn global add @nestjs/cli
 
 `export PATH=$PATH:path_bin`
 
-<<<<<<< HEAD
 vd: `export PATH=$PATH:/home/noan/.yarn/bin`
-=======
-## Tổng hợp - Menu - 9394 - 28
->>>>>>> 6b6dababf8842c0b051bbfe9bfff224d1c7f8111
 
 ### check
 
@@ -203,15 +199,28 @@ Signature   Mã hóa từ Header và Paylaod
 
 ```typescript
 import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nest/passport';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
+    PassportModule.register({
+      defaultStrategy: 'jwt'
+    }),
     JwtModule.register({
       secret: 'secret',
       signOptions: {
         expiresIn: 36000
       }
-    })
+    }),
+    providers: [
+      AuthService,
+      JwtStrategy
+    ],
+    exports: [
+      JwtStrategy,
+      PassportModule
+    ]
   ]
 })
 export class AuthModule {}
@@ -229,6 +238,48 @@ contructor(private jwtService: JwtService) {}
 let payload = { username };
 let accessToken = this.jwtService.sign(payload);
 
+```
+
+### authen
+
+[**Document**](https://docs.nestjs.com/security/authentication#jwt-functionality)
+
+- Create file */auth/jwt.strategy.ts*
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import { PassportStrategy } from '@nestjs/passport';
+import { Strategy, ExtractJwt } from 'passport-jwt';
+import { JwtPayload } from './jwt-payload.interface'; 
+
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor() {
+    super({
+      jwtFromHeader: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: 'secret'
+    })
+  }
+
+  async validate (payload: JwtPayload) {
+    return payload.username;
+  }
+}
+```
+
+- Bảo vệ theo route
+
+_Controler file_
+
+```typescript
+import { UseGuards } from '@nestjs/common';
+import { UseGuards, AuthGuard} from '@nestjs/passport';
+
+@get('edit-profile')
+@UseGuards(AuthGuard())
+editProfile(@Req() req) {
+  console.log('username', req.username);
+}
 ```
 
 ## Throw exception
