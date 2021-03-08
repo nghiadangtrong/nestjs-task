@@ -9,6 +9,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { PrivateKeyInput } from 'crypto';
 import { TaskStatusValidationPipe } from './pipes/task-status-validation.pipe';
 import { TaskModule } from './task.module';
+import { User } from 'src/auth/user.entity';
 
 @Injectable()
 export class TaskService {
@@ -31,10 +32,11 @@ export class TaskService {
         return task;
     }
 
-    async createTask (createTaskDto: CreateTaskDto): Promise<Task> {
-        let { title, description } = createTaskDto;
-
-        return await this.taskRepository.createTask(title, description);
+    async createTask (
+        createTaskDto: CreateTaskDto,
+        user: User
+    ): Promise<Task> {
+        return await this.taskRepository.createTask(createTaskDto, user);
     } 
     
     async deleteTask (id: number): Promise<void> {
