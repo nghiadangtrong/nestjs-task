@@ -56,7 +56,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Tổng hợp - Menu - 9394 - 56end
+## Tổng hợp - Menu - 9394 - 58end
 
 1.cli
 
