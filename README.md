@@ -282,6 +282,10 @@ editProfile(@Req() req) {
 }
 ```
 
+## Configuration
+
+- Dùng file .env, .yml
+
 ## Throw exception
 
 ```typescript
