@@ -10,6 +10,9 @@ import * as config from 'config';
 
 const jwtConfig = config.get('jwt');
 
+
+console.log('type: ', typeof jwtConfig.expiresIn)
+
 @Module({
   imports: [
     PassportModule.register({
@@ -18,7 +21,7 @@ const jwtConfig = config.get('jwt');
     JwtModule.register({
       secret: jwtConfig.secret,
       signOptions: {
-        expiresIn: jwtConfig.expires
+        expiresIn: jwtConfig.expiresIn
       }
     }),
     TypeOrmModule.forFeature([

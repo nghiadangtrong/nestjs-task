@@ -6,4 +6,4 @@ db:
   port: '5432'
 
 jwt:
-  expireIn: 36000
+  expiresIn: 36000

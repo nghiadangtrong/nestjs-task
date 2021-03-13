@@ -284,7 +284,19 @@ editProfile(@Req() req) {
 
 ## Configuration
 
-- Dùng file .env, .yml
+**Cài đặt:** `yarn add config`;
+
+**Dùng file config/*.yml**
+
+- default.yml -> cài đặt mặc định
+
+** Sử dụng**
+
+```typescript
+import * as config from 'config';
+
+let dbConfig = config.get('db');
+``` 
 
 ## Throw exception
 
