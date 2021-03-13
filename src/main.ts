@@ -9,6 +9,10 @@ async function bootstrap() {
 
   let configServer = config.get('server');
  
+  if (process.env.NODE_ENV === 'develoment') { 
+    app.enableCors();
+  }
+
   await app.listen(configServer.port);
 
   logger.log(`Application listerning on port ${configServer.port}`)

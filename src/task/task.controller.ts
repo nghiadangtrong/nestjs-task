@@ -9,7 +9,7 @@ import { TaskStatus } from './task-status.enum';
 import { Task } from './task.entity';
 import { TaskService } from './task.service';
 
-@Controller('task')
+@Controller('tasks')
 @UseGuards(AuthGuard())
 export class TaskController {
     constructor(private taskService: TaskService) {}

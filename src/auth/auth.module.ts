@@ -10,9 +10,6 @@ import * as config from 'config';
 
 const jwtConfig = config.get('jwt');
 
-
-console.log('type: ', typeof jwtConfig.expiresIn)
-
 @Module({
   imports: [
     PassportModule.register({
