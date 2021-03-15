@@ -56,7 +56,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Tổng hợp - Menu - 9394 - 62end
+## Tổng hợp - Menu - 9394 - 69end
 
 1.cli
 
@@ -290,13 +290,13 @@ editProfile(@Req() req) {
 
 - default.yml -> cài đặt mặc định
 
-** Sử dụng**
+**Sử dụng**
 
 ```typescript
 import * as config from 'config';
 
 let dbConfig = config.get('db');
-``` 
+```
 
 ## Throw exception
 
