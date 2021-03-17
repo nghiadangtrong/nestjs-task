@@ -56,7 +56,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Tổng hợp - Menu - 9394 - 69end
+## Tổng hợp - Menu - 9394 - 72end
 
 1.cli
 
@@ -297,6 +297,23 @@ import * as config from 'config';
 
 let dbConfig = config.get('db');
 ```
+
+## Testing (Jestjs)
+
+### Khai báo
+
+- *.spec.ts
+- `jest --watch`
+
+### Test case
+
+1. So sánh
+
+2. function
+2.1 function mock
+2.2 Đếm số lần gọi hàm
+
+3. throw
 
 ## Throw exception
 
