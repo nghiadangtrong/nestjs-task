@@ -37,7 +37,7 @@ describe("FriendsList", () => {
         expect(friendsList.friends.length).toEqual(1);
     })
 
-    it('annouce friendship', () => {
+    it('function announceFriendShip đã được gọi vào', () => {
         friendsList.announceFriendShip = jest.fn();
         expect(friendsList.announceFriendShip).not.toHaveBeenCalled();
         friendsList.addFriend('noan');
@@ -52,7 +52,7 @@ describe("FriendsList", () => {
             expect(friendsList.friends.length).toEqual(0);
         })
 
-        it('throw remove', () => {
+        it('throw error remove', () => {
             let name = 'noan';
             expect(()=> friendsList.removeFriend(name)).toThrow(new Error(`${name} not exits`));
         })

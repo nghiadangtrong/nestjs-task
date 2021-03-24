@@ -56,7 +56,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Tổng hợp - Menu - 9394 - 72end
+## Tổng hợp - Menu - 9394 - 79end
 
 1.cli
 
@@ -307,13 +307,13 @@ let dbConfig = config.get('db');
 
 ### Test case
 
-1. So sánh
+1. So sánh: expect(1).toEqual(1)
 
 2. function
-2.1 function mock
-2.2 Đếm số lần gọi hàm
+2.1 function mock: nameFuntion = jest.fn();
+2.2 Đếm số lần gọi hàm: expect().toHaveBeenCalled();
 
-3. throw
+3. throw: expect(() => call()).toThrow(new Error())
 
 ## Throw exception
 
