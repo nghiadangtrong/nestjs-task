@@ -5,10 +5,11 @@ import { User } from "./user.entity";
 import * as bcrypt from 'bcrypt';
 
 @EntityRepository(User)
-export class AuthRepository extends Repository<User> {
+export class UserRepository extends Repository<User> {
     async signUp (authCredentialsDto: AuthCredentialsDto) : Promise<void> {
         let { username, password } = authCredentialsDto;
-        let user = new User();
+        // let user = new User();
+        let user = this.create();
 
         user.username = username;
         user.salt = await bcrypt.genSalt();
@@ -17,7 +18,7 @@ export class AuthRepository extends Repository<User> {
         try { 
             await user.save();
         } catch (error) {
-            if (error === '23505') { // duplicate username
+            if (error.code === '23505') { // duplicate username
                 throw new ConflictException('Username already exists');
             } else {
                 throw new InternalServerErrorException(); // Ngoại lệ lỗi máy chủ nội bộ
